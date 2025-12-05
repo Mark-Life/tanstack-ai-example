@@ -24,6 +24,11 @@ export async function POST(request: Request) {
       messages,
       model: "gpt-5-nano",
       conversationId,
+      providerOptions: {
+        reasoning: {
+          effort: "medium", // "minimal" | "low" | "medium" | "high"
+        },
+      },
     });
 
     // Convert stream to HTTP response
