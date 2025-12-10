@@ -1,6 +1,6 @@
 import { chat, toStreamResponse } from "@tanstack/ai";
 import { openai } from "@tanstack/ai-openai";
-import { getWeatherServer } from "./tools";
+import { getSecureWeatherServer } from "./tools";
 
 export async function POST(request: Request) {
   // Check for API key
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       messages,
       model: "gpt-5-nano",
       conversationId,
-      tools: [getWeatherServer],
+      tools: [getSecureWeatherServer],
       providerOptions: {
         reasoning: {
           effort: "low",
